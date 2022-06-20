@@ -18,9 +18,9 @@ public class Even {
             System.out.print("Your answer: ");
             String answer = Cli.getUserInput().nextLine();
             if (checkAnswer(randomNumber, answer)) {
-                System.out.println("Correct");
+                System.out.println("Correct!");
                 if (rounds == 2) {
-                    System.out.println("Congratulation, " + Cli.getPlayerName());
+                    System.out.println("Congratulation, " + Cli.getPlayerName() + " !");
                 }
                 rounds++;
             } else {
