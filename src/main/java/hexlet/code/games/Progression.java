@@ -41,7 +41,7 @@ public class Progression {
             if (answer == hiddenNumber) {
                 System.out.println("Correct!");
                 if (rounds == 2) {
-                    System.out.println("Congratulation, " + Cli.getPlayerName() + " !");
+                    System.out.println("Congratulation, " + Cli.getPlayerName() + "!");
                 }
                 rounds++;
             } else {
