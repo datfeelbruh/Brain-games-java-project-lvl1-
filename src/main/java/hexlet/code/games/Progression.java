@@ -2,6 +2,7 @@ package hexlet.code.games;
 import hexlet.code.Cli;
 
 public class Progression {
+    private static int rounds = Engine.getRounds();
     private static int hiddenNumber;
     private static int hiddenNumberIndex;
     private static String[] progression;
@@ -11,7 +12,7 @@ public class Progression {
     }
 
     private static void run() {
-        while (Engine.rounds < Engine.maxRounds) {
+        while (rounds < Engine.MAXROUNDS) {
             setQuestion();
             System.out.print("Question: ");
             printProgression(progression);
@@ -19,13 +20,13 @@ public class Progression {
             setAnswer();
             if (answer == hiddenNumber) {
                 Engine.correctAnswer();
-                if (Engine.rounds == 2) {
+                if (rounds == 2) {
                     Engine.gameWon();
                 }
-                Engine.rounds++;
+                rounds++;
             } else {
                 Engine.gameLost(String.valueOf(answer), String.valueOf(hiddenNumber));
-                Engine.rounds = Engine.maxRounds;
+                rounds = Engine.MAXROUNDS;
             }
         }
 
@@ -61,8 +62,8 @@ public class Progression {
         progression[hiddenNumberIndex] = "..";
     }
 
-    private static void printProgression(String[] progression) {
-        for (String elem : progression) {
+    private static void printProgression(String[] array) {
+        for (String elem : array) {
             System.out.print(elem + " ");
         }
     }

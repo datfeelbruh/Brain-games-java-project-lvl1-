@@ -4,27 +4,28 @@ import hexlet.code.Cli;
 import java.util.Arrays;
 
 public class Prime {
+    private static int rounds = Engine.getRounds();
     private static int number;
     private static String answer;
     public static void start() {
         run();
     }
     private static void run() {
-        while (Engine.rounds < Engine.maxRounds) {
+        while (rounds < Engine.MAXROUNDS) {
             setQuestion();
             System.out.println("Question: " + number);
             System.out.print("Your answer: ");
             setAnswer();
             if (checkAnswer(number, answer))  {
                 Engine.correctAnswer();
-                if (Engine.rounds == 2) {
+                if (rounds == 2) {
                     Engine.gameWon();
                 }
-                Engine.rounds++;
+                rounds++;
             } else {
                 String correctAnswer = answer.equals("yes") ? "no" : "yes";
                 Engine.gameLost(answer, correctAnswer);
-                Engine.rounds = Engine.maxRounds;
+                rounds = Engine.MAXROUNDS;
             }
 
         }
@@ -90,20 +91,20 @@ public class Prime {
         return Arrays.copyOfRange(numbersWithoutPrimes, 0, primes.length);
     }
     // Проверка числа на простоту
-    private static boolean isPrime(int number) {
-        for (int i = 2; i <= Math.sqrt(number); i++) {
-            if (number % i == 0) {
+    private static boolean isPrime(int num) {
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
                 return false;
             }
         }
         return true;
     }
 
-    private static boolean checkAnswer(int number, String userAnswer) {
-        if (isPrime(number) && userAnswer.equals("yes")) {
+    private static boolean checkAnswer(int num, String userAnswer) {
+        if (isPrime(num) && userAnswer.equals("yes")) {
             return true;
         } else {
-            return !isPrime(number) && userAnswer.equals("no");
+            return !isPrime(num) && userAnswer.equals("no");
         }
     }
 }

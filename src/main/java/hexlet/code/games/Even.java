@@ -3,6 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Cli;
 
 public class Even {
+    private static int rounds = Engine.getRounds();
     private static int question;
     private static String answer;
 
@@ -10,21 +11,21 @@ public class Even {
         run();
     }
     private static void run() {
-        while (Engine.rounds < Engine.maxRounds) {
+        while (rounds < Engine.MAXROUNDS) {
             setQuestion();
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");
             setAnswer();
             if (checkAnswer(question, answer)) {
                 Engine.correctAnswer();
-                if (Engine.rounds == 2) {
+                if (rounds == 2) {
                     Engine.gameWon();
                 }
-                Engine.rounds++;
+                rounds++;
             } else {
                 String correctAnswer = answer.equals("yes") ? "no" : "yes";
                 Engine.gameLost(answer, correctAnswer);
-                Engine.rounds = Engine.maxRounds;
+                rounds = Engine.MAXROUNDS;
             }
         }
     }
@@ -32,7 +33,7 @@ public class Even {
         answer = Cli.getUserInput().nextLine();
     }
     public static void setQuestion() {
-        int rangeForNumbers = 100;
+        final int rangeForNumbers = 100;
         question = (int) (Math.random() * rangeForNumbers);
     }
 

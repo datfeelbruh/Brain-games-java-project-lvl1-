@@ -3,14 +3,13 @@ package hexlet.code.games;
 import hexlet.code.Cli;
 
 public class Engine {
-    static int rounds = 0;
-    final static int maxRounds = 3;
+    private static int rounds = 0;
+    static final int MAXROUNDS = 3;
     public static void start(String game) {
         Cli.greeting();
         switch (game) {
-            case "0": {
+            case "0":
                 break;
-            }
             case "1":
                 Cli.greeting();
             case "2":
@@ -39,7 +38,9 @@ public class Engine {
         }
         Cli.closeUserInput();
     }
-
+    public static int getRounds() {
+        return rounds;
+    }
     public static void correctAnswer() {
         System.out.println("Correct!");
     }
