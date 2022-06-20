@@ -3,34 +3,37 @@ package hexlet.code.games;
 import hexlet.code.Cli;
 
 public class Even {
+    private static int question;
+    private static String answer;
+
     public static void start() {
-        Cli.greeting();
-        System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
         run();
     }
     private static void run() {
-        int rounds = 0;
-        final int maxRounds = 3;
-        final int rangeForNumbers = 100;
-        while (rounds < maxRounds) {
-            int randomNumber = (int) (Math.random() * rangeForNumbers);
-            System.out.println("Question: " + randomNumber);
+        while (Engine.rounds < Engine.maxRounds) {
+            setQuestion();
+            System.out.println("Question: " + question);
             System.out.print("Your answer: ");
-            String answer = Cli.getUserInput().nextLine();
-            if (checkAnswer(randomNumber, answer)) {
-                System.out.println("Correct!");
-                if (rounds == 2) {
-                    System.out.println("Congratulation, " + Cli.getPlayerName() + "!");
+            setAnswer();
+            if (checkAnswer(question, answer)) {
+                Engine.correctAnswer();
+                if (Engine.rounds == 2) {
+                    Engine.gameWon();
                 }
-                rounds++;
+                Engine.rounds++;
             } else {
                 String correctAnswer = answer.equals("yes") ? "no" : "yes";
-                System.out.println("'" + answer+ " is wrong answer ;(. Correct answer was "
-                                    + correctAnswer + ".\n"
-                                    + "Let's try again, " + Cli.getPlayerName() + "!");
-                rounds = maxRounds;
+                Engine.gameLost(answer, correctAnswer);
+                Engine.rounds = Engine.maxRounds;
             }
         }
+    }
+    private static void setAnswer() {
+        answer = Cli.getUserInput().nextLine();
+    }
+    public static void setQuestion() {
+        int rangeForNumbers = 100;
+        question = (int) (Math.random() * rangeForNumbers);
     }
 
     private static boolean checkAnswer(int number, String userAnswer) {

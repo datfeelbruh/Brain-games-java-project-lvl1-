@@ -1,27 +1,16 @@
 package hexlet.code;
 
-import hexlet.code.games.Even;
-import hexlet.code.games.Calc;
-import hexlet.code.games.Gcd;
-import hexlet.code.games.Progression;
-import hexlet.code.games.Prime;
-
+import hexlet.code.games.Engine;
 
 
 public class App {
     public static void main(String[] args) {
-        switch (Cli.chooseGame()) {
+        String chosenGame = Cli.chooseGame();
+        switch (chosenGame) {
             case "1" -> Cli.greeting();
-            case "2" -> Even.start();
-            case "3" -> Calc.start();
-            case "4" -> Gcd.start();
-            case "5" -> Progression.start();
-            case "6" -> Prime.start();
+            case "2", "3", "4", "5", "6" -> Engine.start(chosenGame);
             default -> {
             }
         }
-
-        Cli.closeUserInput();
-
     }
 }

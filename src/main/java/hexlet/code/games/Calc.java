@@ -3,41 +3,47 @@ package hexlet.code.games;
 import hexlet.code.Cli;
 
 public class Calc {
+    private static int a;
+    private static int b;
+    private static String operator;
+    private static final String[] operators = {"+", "-", "*"};
+    private static int answer;
+
     public static void start() {
-        Cli.greeting();
-        System.out.println("What is the result of the expression?");
         run();
     }
 
     private static void run() {
-        String[] operators = {"+", "-", "*"};
-        final int maxRounds = 3;
-        final int range = 15;
-        int rounds = 0;
-        while (rounds < maxRounds) {
-            int a = (int) (Math.random() * range);
-            int b = (int) (Math.random() * range);
-            int operatorsRange = operators.length - 1;
-            String chosenOperator = operators[(int) (Math.round(Math.random() * operatorsRange))];
-            String expression = Integer.toString(a) + " " + chosenOperator + " " + Integer.toString(b);
+        while (Engine.rounds < Engine.maxRounds) {
+            setQuestion();
+            String expression = a + " " + operator + " " + b;
             System.out.println("Question: " + expression);
             System.out.print("Your answer: ");
-            int answer = Integer.parseInt(Cli.getUserInput().nextLine());
-            if (calcExpression(a, b, chosenOperator) == answer) {
-                System.out.println("Correct!");
-                if (rounds == 2) {
-                    System.out.println("Congratulation, " + Cli.getPlayerName() + "!");
+            setAnswer();
+            if (calcExpression(a, b, operator) == answer) {
+                Engine.correctAnswer();
+                if (Engine.rounds == 2) {
+                    System.out.println("Congratulations, " + Cli.getPlayerName() + "!");
                 }
-                rounds++;
+                Engine.rounds++;
             } else {
-                System.out.println("'" + Integer.toString(answer) + "'" + " is wrong answer ;(. "
-                                    + "Correct answer was " + "'" + calcExpression(a, b, chosenOperator) + "'.\n"
-                                    + "Let's try again, " + Cli.getPlayerName());
-                rounds = maxRounds;
+                String correctAnswer = String.valueOf(calcExpression(a, b,operator));
+                Engine.gameLost(String.valueOf(answer), correctAnswer);
+                Engine.rounds = Engine.maxRounds;
             }
         }
     }
+    private static void setQuestion() {
+        final int range = 15;
+        a = (int) (Math.random() * range);
+        b = (int) (Math.random() * range);
+        int operatorsRange = operators.length - 1;
+        operator = operators[(int) (Math.round(Math.random() * operatorsRange))];
+    }
 
+    private static void setAnswer() {
+        answer = Integer.parseInt(Cli.getUserInput().nextLine());
+    }
     private static int calcExpression(int a, int b, String operator) {
         return switch (operator) {
             case "+" -> a + b;
