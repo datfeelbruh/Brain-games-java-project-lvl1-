@@ -8,15 +8,15 @@
   ~~~
 # Демонстрация работы игр
 ## Even
-  https://asciinema.org/a/InYG1PrmNNYxvf3sj8aHqGQLr
+  https://asciinema.org/a/f4SfM2CJAJCwNxzFPI5HRRlj8
 ## Calc
-  https://asciinema.org/a/QYkNUfsfS9MmZvAsuIWRcNlrW
+  https://asciinema.org/a/Bs8xcMs51PjKde1hhuyk4cu4G
 ## Gcd
-  https://asciinema.org/a/s5fsmZE7C1wDk9CfMyYJO20LD
+  https://asciinema.org/a/1PCUjZe7lsfy5JdcXWP1fQbwv
 ## Progression
-  https://asciinema.org/a/zUVH6fNDxUXiD0Yl3AqqLTdc4
+  https://asciinema.org/a/lnfFOMAvOKF7wkCML8Sa1R9Es
 ## Prime
-  https://asciinema.org/a/tCem4D82atOa2uEzia26MAc96
+  https://asciinema.org/a/jIgf3TbjIMsxZtFbEnY44ajKc
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/datfeelbruh/java-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/datfeelbruh/java-project-lvl1/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
