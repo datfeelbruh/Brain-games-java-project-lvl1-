@@ -24,9 +24,7 @@ public class Progression {
                 }
                 Engine.rounds++;
             } else {
-                System.out.println("'" + answer + "'" + " is wrong answer ;(. "
-                        + "Correct answer was " + "'" + hiddenNumber + "'.\n"
-                        + "Let's try again, " + Cli.getPlayerName());
+                Engine.gameLost(String.valueOf(answer), String.valueOf(hiddenNumber));
                 Engine.rounds = Engine.maxRounds;
             }
         }
