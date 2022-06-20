@@ -26,7 +26,7 @@ public class Gcd {
                 }
                 rounds++;
             } else {
-                System.out.println("'" + Integer.toString(answer) + "'" + " is wrong answer ;(. "
+                System.out.println("'" + answer + "'" + " is wrong answer ;(. "
                         + "Correct answer was " + "'" + getGcd(a, b) + "'.\n"
                         + "Let's try again, " + Cli.getPlayerName());
                 rounds = maxRounds;
