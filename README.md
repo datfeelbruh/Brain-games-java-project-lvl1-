@@ -14,7 +14,7 @@
 ## Gcd
   https://asciinema.org/a/1PCUjZe7lsfy5JdcXWP1fQbwv
 ## Progression
-  https://asciinema.org/a/lnfFOMAvOKF7wkCML8Sa1R9Es
+  https://asciinema.org/a/Kck3lhEsEZRddO7OUNniPKgb4
 ## Prime
   https://asciinema.org/a/jIgf3TbjIMsxZtFbEnY44ajKc
 ### Hexlet tests and linter status:
