@@ -24,9 +24,9 @@ public class Calc {
             System.out.print("Your answer: ");
             int answer = Integer.parseInt(Cli.getUserInput().nextLine());
             if (calcExpression(a, b, chosenOperator) == answer) {
-                System.out.println("Correct");
+                System.out.println("Correct!");
                 if (rounds == 2) {
-                    System.out.println("Congratulation, " + Cli.getPlayerName());
+                    System.out.println("Congratulation, " + Cli.getPlayerName() + " !");
                 }
                 rounds++;
             } else {
