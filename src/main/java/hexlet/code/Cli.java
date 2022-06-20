@@ -26,6 +26,7 @@ public class Cli {
                             + "2 - Even\n"
                             + "3 - Calc\n"
                             + "4 - Gcd\n"
+                            + "5 - Progression\n"
                             + "0 - Exit");
         System.out.print("Your choice: ");
         try {
