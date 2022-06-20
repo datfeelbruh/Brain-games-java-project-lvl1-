@@ -25,7 +25,7 @@ public class Even {
                 rounds++;
             } else {
                 String correctAnswer = answer.equals("yes") ? "no" : "yes";
-                System.out.println(answer + " is wrong answer ;(. Correct answer was "
+                System.out.println("'" + answer+ " is wrong answer ;(. Correct answer was "
                                     + correctAnswer + ".\n"
                                     + "Let's try again, " + Cli.getPlayerName() + "!");
                 rounds = maxRounds;

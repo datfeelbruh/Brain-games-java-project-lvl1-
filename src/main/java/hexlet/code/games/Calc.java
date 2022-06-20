@@ -30,7 +30,7 @@ public class Calc {
                 }
                 rounds++;
             } else {
-                System.out.println("'" + answer + "'" + " is wrong answer ;(. "
+                System.out.println("'" + Integer.toString(answer) + "'" + " is wrong answer ;(. "
                                     + "Correct answer was " + "'" + calcExpression(a, b, chosenOperator) + "'.\n"
                                     + "Let's try again, " + Cli.getPlayerName());
                 rounds = maxRounds;
