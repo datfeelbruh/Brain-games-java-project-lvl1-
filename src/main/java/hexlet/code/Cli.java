@@ -19,21 +19,18 @@ public class Cli {
         playerName = userInput.nextLine();
     }
 
-    public static int chooseGame() throws NumberFormatException {
-        int playerChoice = -1;
+    public static String chooseGame() throws NumberFormatException {
+        String playerChoice = "";
         System.out.println("Please enter the game number and press Enter\n"
                             + "1 - Greet\n"
                             + "2 - Even\n"
                             + "3 - Calc\n"
                             + "4 - Gcd\n"
                             + "5 - Progression\n"
+                            + "6 - Prime\n"
                             + "0 - Exit");
         System.out.print("Your choice: ");
-        try {
-            playerChoice = Integer.parseInt(userInput.nextLine());
-        } catch (NumberFormatException e) {
-            System.out.println("You must input a number");
-        }
+        playerChoice = userInput.nextLine();
         return playerChoice;
     }
     public static void closeUserInput() {
