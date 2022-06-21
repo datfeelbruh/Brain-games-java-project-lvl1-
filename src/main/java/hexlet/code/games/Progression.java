@@ -17,7 +17,7 @@ public class Progression {
     }
     private static void run(String name, Scanner scanner) {
         System.out.println(DESCRIPTION);
-        while (Engine.getRound() != Engine.MAXROUNDS) {
+        while (Engine.getRound() < Engine.MAXROUNDS) {
             setQuestion();
             System.out.print("Question: ");
             printProgression(progression);

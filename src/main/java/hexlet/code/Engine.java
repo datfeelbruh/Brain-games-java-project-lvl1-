@@ -10,16 +10,15 @@ public class Engine {
     }
 
     public static void run(String name, String answer, boolean check, String correctAnswer) {
-        for (; round < MAXROUNDS; round++) {
-            if (check) {
-                correctAnswer();
-                if (round == 2) {
-                    gameWon(name);
-                }
-            } else {
-                gameLost(answer, correctAnswer, name);
-                Engine.round = MAXROUNDS;
+        if (check) {
+            correctAnswer();
+            if (round == 2) {
+                gameWon(name);
             }
+            Engine.round++;
+        } else {
+            gameLost(answer, correctAnswer, name);
+            Engine.round = MAXROUNDS;
         }
     }
     public static int getRound() {

@@ -16,7 +16,7 @@ public class Even {
     }
     private static void run(String name, Scanner scanner) {
         System.out.println(DESCRIPTION);
-        while (Engine.getRound() != Engine.MAXROUNDS) {
+        while (Engine.getRound() < Engine.MAXROUNDS) {
             int question = setQuestion();
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");

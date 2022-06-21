@@ -17,7 +17,7 @@ public class Calc {
 
     private static void run(String name, Scanner scanner) {
         System.out.println(DESCRIPTION);
-        while (Engine.getRound() != Engine.MAXROUNDS) {
+        while (Engine.getRound() < Engine.MAXROUNDS) {
             final int range = 15;
             int a = (int) (Math.random() * range);
             int b = (int) (Math.random() * range);
