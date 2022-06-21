@@ -17,7 +17,7 @@ public class Calc {
 
     private static void run(String name, Scanner scanner) {
         System.out.println(DESCRIPTION);
-        for (; Engine.round < Engine.MAXROUNDS; Engine.round++) {
+        while (Engine.getRound() != Engine.MAXROUNDS) {
             final int range = 15;
             int a = (int) (Math.random() * range);
             int b = (int) (Math.random() * range);
@@ -33,14 +33,12 @@ public class Calc {
         }
     }
 
-    private static int calcExpression(int n1, int n2, String op) {
-        int result = 0;
-        switch (op) {
-            case "+" -> result = n1 + n2;
-            case "-" -> result = n1 - n2;
-            case "*" -> result = n1 * n2;
-            default -> System.out.println("No logic for operator" + op);
-        }
-        return result;
+    private static int calcExpression(int n1, int n2, String op) throws RuntimeException {
+        return switch (op) {
+            case "+" -> n1 + n2;
+            case "-" -> n1 - n2;
+            case "*" -> n1 * n2;
+            default -> throw new RuntimeException("No logic for this operator");
+        };
     }
 }
