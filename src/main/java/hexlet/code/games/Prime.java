@@ -1,38 +1,33 @@
 package hexlet.code.games;
-import hexlet.code.Cli;
 
+import hexlet.code.Engine;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Prime {
-    private static int rounds = Engine.getRounds();
-    private static int number;
-    private static String answer;
+    public static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+
     public static void start() {
-        run();
+        Engine.start();
+        Scanner playerInput = new Scanner(System.in);
+        String playerName = playerInput.nextLine();
+        System.out.println("Hello, " + playerName + "!");
+        run(playerName, playerInput);
     }
-    private static void run() {
-        while (rounds < Engine.MAXROUNDS) {
-            setQuestion();
-            System.out.println("Question: " + number);
+    private static void run(String name, Scanner scanner) {
+        System.out.println(DESCRIPTION);
+        for (; Engine.round < Engine.MAXROUNDS; Engine.round++) {
+            int question = setQuestion();
+            System.out.println("Question: " + question);
             System.out.print("Your answer: ");
-            setAnswer();
-            if (checkAnswer(number, answer))  {
-                Engine.correctAnswer();
-                if (rounds == 2) {
-                    Engine.gameWon();
-                }
-                rounds++;
-            } else {
-                String correctAnswer = answer.equals("yes") ? "no" : "yes";
-                Engine.gameLost(answer, correctAnswer);
-                rounds = Engine.MAXROUNDS;
-            }
-
+            String answer = scanner.nextLine();
+            boolean check = checkAnswer(question, answer);
+            String correctAnswer = answer.equals("yes") ? "no" : "yes";
+            Engine.run(name, answer, check, correctAnswer);
         }
-
     }
 
-    private static void setQuestion() {
+    private static int setQuestion() {
         final int range = 50;
         // Массив чисел для генерации
         int[] numbers = numbersForRange(range);
@@ -45,11 +40,7 @@ public class Prime {
         // Выбираем из какого массива будем брать число 0 - простые, 1 - не простые
         int selectedArray = (int) (Math.round(Math.random()));
         // Объявляем значение загаданного числа
-        number = selectedArray == 0 ? primes[randomIndex] : notPrimes[randomIndex];
-    }
-
-    private static void setAnswer() {
-        answer = Cli.getUserInput().nextLine();
+        return selectedArray == 0 ? primes[randomIndex] : notPrimes[randomIndex];
     }
 
     // Генерируем массив чисел до range

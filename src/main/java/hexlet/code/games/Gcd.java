@@ -1,51 +1,41 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
-
+import hexlet.code.Engine;
+import java.util.Scanner;
 
 public class Gcd {
-    private static int rounds = Engine.getRounds();
-    private static int a;
-    private static int b;
-    private static int answer;
+    public static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
+
 
     public static void start() {
-        run();
+        Engine.start();
+        Scanner playerInput = new Scanner(System.in);
+        String playerName = playerInput.nextLine();
+        System.out.println("Hello, " + playerName + "!");
+        run(playerName, playerInput);
     }
 
-    private static void run() {
-        while (rounds < Engine.MAXROUNDS) {
-            setQuestion();
+    private static void run(String name, Scanner scanner) {
+        System.out.println(DESCRIPTION);
+        for (; Engine.round < Engine.MAXROUNDS; Engine.round++) {
+            final int range = 100;
+            int a = (int) (Math.random() * range);
+            int b = (int) (Math.random() * range);
             System.out.println("Question: " + a + " " + b);
             System.out.print("Your answer: ");
-            setAnswer();
-            if (getGcd(a, b) == answer) {
-                Engine.correctAnswer();
-                if (rounds == 2) {
-                    Engine.gameWon();
-                }
-                rounds++;
-            } else {
-                String correctAnswer = String.valueOf(getGcd(a, b));
-                Engine.gameLost(String.valueOf(answer), correctAnswer);
-                rounds = Engine.MAXROUNDS;
-            }
+            String answer = scanner.nextLine();
+            String correctAnswer = String.valueOf(getGcd(a, b));
+            boolean check = answer.equals(correctAnswer);
+            Engine.run(name, answer, check, correctAnswer);
         }
     }
 
-    private static void setQuestion() {
-        final int range = 100;
-        a = (int) (Math.random() * range);
-        b = (int) (Math.random() * range);
-    }
-
-    private static void setAnswer() {
-        answer = Integer.parseInt(Cli.getUserInput().nextLine());
-    }
     private static int getGcd(int n1, int n2) {
         if (n2 == 0) {
             return n1;
         }
         return getGcd(n2, n1 % n2);
     }
+
+
 }
