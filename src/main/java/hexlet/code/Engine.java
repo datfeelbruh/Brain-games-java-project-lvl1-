@@ -2,7 +2,7 @@ package hexlet.code;
 
 public class Engine {
 
-    public static int round = 0;
+    private static int round = 0;
     public static final int MAXROUNDS = 3;
 
     public static void start() {
@@ -10,17 +10,21 @@ public class Engine {
     }
 
     public static void run(String name, String answer, boolean check, String correctAnswer) {
-        if (check) {
-            correctAnswer();
-            if (round == 2) {
-                gameWon(name);
+        for (; round < MAXROUNDS; round++) {
+            if (check) {
+                correctAnswer();
+                if (round == 2) {
+                    gameWon(name);
+                }
+            } else {
+                gameLost(answer, correctAnswer, name);
+                Engine.round = MAXROUNDS;
             }
-        } else {
-            gameLost(answer, correctAnswer, name);
-            Engine.round = MAXROUNDS;
         }
     }
-
+    public static int getRound() {
+        return round;
+    }
     public static void correctAnswer() {
         System.out.println("Correct!");
     }
