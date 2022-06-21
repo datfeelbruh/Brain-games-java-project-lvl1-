@@ -13,19 +13,16 @@ public class Progression {
         Scanner playerInput = new Scanner(System.in);
         String playerName = playerInput.nextLine();
         System.out.println("Hello, " + playerName + "!");
-        run(playerName, playerInput);
-    }
-    private static void run(String name, Scanner scanner) {
         System.out.println(DESCRIPTION);
         while (Engine.getRound() < Engine.MAXROUNDS) {
             setQuestion();
             System.out.print("Question: ");
             printProgression(progression);
             System.out.print("\nYour answer: ");
-            String answer = scanner.nextLine();
+            String answer = playerInput.nextLine();
             String correctAnswer = String.valueOf(hiddenNumber);
             boolean check = answer.equals(correctAnswer);
-            Engine.run(name, answer, check, correctAnswer);
+            Engine.run(playerName, answer, check, correctAnswer);
         }
     }
 

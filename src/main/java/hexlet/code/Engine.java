@@ -33,8 +33,8 @@ public class Engine {
     }
 
     public static void gameLost(String answer, String correctAnswer, String playerName) {
-        System.out.println("'" + answer + " is wrong answer ;(. Correct answer was "
-                + correctAnswer + ".\n"
+        System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was "
+                + "'" + correctAnswer + "'" + ".\n"
                 + "Let's try again, " + playerName + "!");
     }
 }

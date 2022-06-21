@@ -12,10 +12,6 @@ public class Gcd {
         Scanner playerInput = new Scanner(System.in);
         String playerName = playerInput.nextLine();
         System.out.println("Hello, " + playerName + "!");
-        run(playerName, playerInput);
-    }
-
-    private static void run(String name, Scanner scanner) {
         System.out.println(DESCRIPTION);
         while (Engine.getRound() < Engine.MAXROUNDS) {
             final int range = 100;
@@ -23,10 +19,10 @@ public class Gcd {
             int b = (int) (Math.random() * range);
             System.out.println("Question: " + a + " " + b);
             System.out.print("Your answer: ");
-            String answer = scanner.nextLine();
+            String answer = playerInput.nextLine();
             String correctAnswer = String.valueOf(getGcd(a, b));
             boolean check = answer.equals(correctAnswer);
-            Engine.run(name, answer, check, correctAnswer);
+            Engine.run(playerName, answer, check, correctAnswer);
         }
     }
 

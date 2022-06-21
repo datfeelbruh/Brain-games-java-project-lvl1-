@@ -12,10 +12,6 @@ public class Calc {
         Scanner playerInput = new Scanner(System.in);
         String playerName = playerInput.nextLine();
         System.out.println("Hello, " + playerName + "!");
-        run(playerName, playerInput);
-    }
-
-    private static void run(String name, Scanner scanner) {
         System.out.println(DESCRIPTION);
         while (Engine.getRound() < Engine.MAXROUNDS) {
             final int range = 15;
@@ -26,10 +22,10 @@ public class Calc {
             String question = a + " " + operator + " " + b;
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");
-            String answer = scanner.nextLine();
+            String answer = playerInput.nextLine();
             String correctAnswer = String.valueOf(calcExpression(a, b, operator));
             boolean check = answer.equals(correctAnswer);
-            Engine.run(name, answer, check, correctAnswer);
+            Engine.run(playerName, answer, check, correctAnswer);
         }
     }
 

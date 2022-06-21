@@ -12,18 +12,15 @@ public class Prime {
         Scanner playerInput = new Scanner(System.in);
         String playerName = playerInput.nextLine();
         System.out.println("Hello, " + playerName + "!");
-        run(playerName, playerInput);
-    }
-    private static void run(String name, Scanner scanner) {
         System.out.println(DESCRIPTION);
         while (Engine.getRound() < Engine.MAXROUNDS) {
             int question = setQuestion();
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");
-            String answer = scanner.nextLine();
+            String answer = playerInput.nextLine();
             boolean check = checkAnswer(question, answer);
             String correctAnswer = answer.equals("yes") ? "no" : "yes";
-            Engine.run(name, answer, check, correctAnswer);
+            Engine.run(playerName, answer, check, correctAnswer);
         }
     }
 
