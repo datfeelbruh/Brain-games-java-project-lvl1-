@@ -15,7 +15,7 @@ public class Engine {
             if (round == 2) {
                 gameWon(name);
             }
-            Engine.round++;
+            round++;
         } else {
             gameLost(answer, correctAnswer, name);
             Engine.round = MAXROUNDS;
