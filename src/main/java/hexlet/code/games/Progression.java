@@ -1,41 +1,34 @@
 package hexlet.code.games;
-import hexlet.code.Cli;
+import hexlet.code.Engine;
+
+import java.util.Scanner;
 
 public class Progression {
-    private static int rounds = Engine.getRounds();
+    public static final String DESCRIPTION = "What number is missing in the progression?";
     private static int hiddenNumber;
-    private static int hiddenNumberIndex;
     private static String[] progression;
-    private static int answer;
-    public static void start() {
-        run();
-    }
 
-    private static void run() {
-        while (rounds < Engine.MAXROUNDS) {
+    public static void start() {
+        Engine.start();
+        Scanner playerInput = new Scanner(System.in);
+        String playerName = playerInput.nextLine();
+        System.out.println("Hello, " + playerName + "!");
+        run(playerName, playerInput);
+    }
+    private static void run(String name, Scanner scanner) {
+        System.out.println(DESCRIPTION);
+        for (; Engine.round < Engine.MAXROUNDS; Engine.round++) {
             setQuestion();
             System.out.print("Question: ");
             printProgression(progression);
             System.out.print("\nYour answer: ");
-            setAnswer();
-            if (answer == hiddenNumber) {
-                Engine.correctAnswer();
-                if (rounds == 2) {
-                    Engine.gameWon();
-                }
-                rounds++;
-            } else {
-                Engine.gameLost(String.valueOf(answer), String.valueOf(hiddenNumber));
-                rounds = Engine.MAXROUNDS;
-            }
+            String answer = scanner.nextLine();
+            String correctAnswer = String.valueOf(hiddenNumber);
+            boolean check = answer.equals(correctAnswer);
+            Engine.run(name, answer, check, correctAnswer);
         }
-
-
     }
 
-    private static void setAnswer() {
-        answer = Integer.parseInt(Cli.getUserInput().nextLine());
-    }
     private static void setQuestion() {
         // Seed числа с которого начинается прогрессия
         final int seedRange = 15;
@@ -57,7 +50,7 @@ public class Progression {
             progression[i] = String.valueOf(Integer.parseInt(progression[i - 1]) + progressionStep);
         }
         // Получаем индекс числа которое будем прятатать
-        hiddenNumberIndex = (int) (Math.random() * progressionSize);
+        int hiddenNumberIndex = (int) (Math.random() * progressionSize);
         hiddenNumber = Integer.parseInt(progression[hiddenNumberIndex]);
         progression[hiddenNumberIndex] = "..";
     }
