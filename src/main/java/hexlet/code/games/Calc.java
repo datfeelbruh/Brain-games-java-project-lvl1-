@@ -26,7 +26,7 @@ public class Calc {
             case "+" -> n1 + n2;
             case "-" -> n1 - n2;
             case "*" -> n1 * n2;
-            default -> throw new RuntimeException("No logic for this operator");
+            default -> throw new RuntimeException("No logic for " + op + "operator");
         };
     }
 }

@@ -10,6 +10,7 @@ public class Engine {
         Scanner scanner = new Scanner(System.in);
         String playerName = scanner.nextLine();
         System.out.println("Hello, " + playerName + "!");
+        System.out.println(description);
         for (int i = 0; i < MAXROUNDS; i++) {
             String question = gameData[0][i];
             String answer = gameData[1][i];
