@@ -1,60 +1,51 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
-
-import java.util.Scanner;
+import hexlet.code.Utils;
 
 public class Progression {
+    private static final int SIZE = 10;
+    private static final int MINSTEP = 2;
     public static final String DESCRIPTION = "What number is missing in the progression?";
-    private static int hiddenNumber;
-    private static String[] progression;
 
     public static void start() {
-        Engine.start();
-        Scanner playerInput = new Scanner(System.in);
-        String playerName = playerInput.nextLine();
-        System.out.println("Hello, " + playerName + "!");
-        System.out.println(DESCRIPTION);
-        while (Engine.getRound() < Engine.MAXROUNDS) {
-            setQuestion();
-            System.out.print("Question: ");
-            printProgression(progression);
-            System.out.print("\nYour answer: ");
-            String answer = playerInput.nextLine();
-            String correctAnswer = String.valueOf(hiddenNumber);
-            boolean check = answer.equals(correctAnswer);
-            Engine.run(playerName, answer, check, correctAnswer);
+        String[] questions = new String[Engine.MAXROUNDS];
+        String[] answers = new String[Engine.MAXROUNDS];
+        for (int i = 0; i < Engine.MAXROUNDS; i++) {
+            int start = Utils.randomNumber();
+            int step = MINSTEP + (int) (Math.random() * SIZE);
+            int[] progression = getProgression(start, step);
+            int hiddenElement = hideProgressionElement(progression);
+            questions[i] = printProgression(progression, hiddenElement);
+            answers[i] = String.valueOf(progression[hiddenElement]);
         }
+        Engine.run(new String[][]{questions, answers}, DESCRIPTION);
     }
-
-    private static void setQuestion() {
-        // Seed числа с которого начинается прогрессия
-        final int seedRange = 15;
-        // Устанавливаем минимальную и максимальную длину прогресссии
-        final int start = 5;
-        final int end = 6;
-        // Вычисляем число с которого начинается прогрессия
-        final int seed = (int) (Math.random() * seedRange);
-        // Получаем длину прогрессии
-        final int progressionSize = start + (int) (Math.random() * end);
-        // Устанавливаем шаг прогрессии
-        final int progressionStepMin = 2;
-        final int progressionStepMax = 6;
-        final int progressionStep = progressionStepMin + (int) (Math.random() * progressionStepMax);
+    private static int[] getProgression(int progressionStart, int progressionStep) {
         // Инициализируем массив с числами прогрессии и заполняем его.
-        progression = new String[progressionSize];
-        progression[0] = Integer.toString(seed);
-        for (int i = 1; i < progressionSize; i++) {
-            progression[i] = String.valueOf(Integer.parseInt(progression[i - 1]) + progressionStep);
+        int[] progression = new int[Progression.SIZE];
+        progression[0] = progressionStart;
+        for (int i = 1; i < Progression.SIZE; i++) {
+            progression[i] = progression[i - 1] + progressionStep;
         }
-        // Получаем индекс числа которое будем прятатать
-        int hiddenNumberIndex = (int) (Math.random() * progressionSize);
-        hiddenNumber = Integer.parseInt(progression[hiddenNumberIndex]);
-        progression[hiddenNumberIndex] = "..";
+        return progression;
     }
 
-    private static void printProgression(String[] array) {
-        for (String elem : array) {
-            System.out.print(elem + " ");
+    private static int hideProgressionElement(int[] progression) {
+        int size = progression.length;
+        return (int) (Math.random() * size);
+    }
+
+    private static String printProgression(int[] array, int hiddenIndex) {
+        StringBuilder printed = new StringBuilder();
+        for (int i = 0; i < array.length; i++) {
+            if (i == hiddenIndex) {
+                printed.append("..");
+                printed.append(" ");
+            } else {
+                printed.append(array[i]);
+                printed.append(" ");
+            }
         }
+        return printed.toString().trim();
     }
 }
