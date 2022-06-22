@@ -1,6 +1,5 @@
 package hexlet.code;
 
-
 import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Gcd;
@@ -11,8 +10,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        Scanner scanChoice = new Scanner(System.in);
-        String playerChoice = "";
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the game number and press Enter\n"
                 + "1 - Greet\n"
                 + "2 - Even\n"
@@ -22,7 +20,7 @@ public class App {
                 + "6 - Prime\n"
                 + "0 - Exit");
         System.out.print("Your choice: ");
-        playerChoice = scanChoice.nextLine();
+        String playerChoice = scanner.nextLine();
         switch (playerChoice) {
             case "0":
                 break;
@@ -48,6 +46,6 @@ public class App {
                 System.out.println("Error! You must choose correct number of game");
                 break;
         }
-
+        scanner.close();
     }
 }
