@@ -39,11 +39,7 @@ public class Progression {
     private static int[] getProgression(int progressionStart, int progressionStep, int size) {
         int[] progression = new int[size];
         for (int i = 0; i < size; i++) {
-            if (i == 0) {
-                progression[i] = progressionStart;
-            } else {
-                progression[i] = progression[i - 1] + progressionStep;
-            }
+            progression[i] = progressionStart + (i - 1) * progressionStep;
         }
         return progression;
     }
