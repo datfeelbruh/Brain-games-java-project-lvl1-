@@ -4,33 +4,38 @@ import hexlet.code.Utils;
 
 public class Progression {
     public static final String DESCRIPTION = "What number is missing in the progression?";
+    private static final int MAXSTARTVALUE = 15;
+    private static final int MAXSTEPVALUE = 8;
+    private static final int MINSIZEVALUE = 5;
+    private static final int MAXSIZEVALUE = 10;
 
     public static void start() {
         String[] questions = new String[Engine.MAXROUNDS];
         String[] answers = new String[Engine.MAXROUNDS];
-        final int maxStartValue = 15;
-        final int maxStepValue = 8;
-        final int minSizeValue = 5;
-        final int maxSizeValue = 10;
         for (int i = 0; i < Engine.MAXROUNDS; i++) {
-            int start = Utils.randomNumber(1, maxStartValue);
-            int step = Utils.randomNumber(2, maxStepValue);
-            int size = Utils.randomNumber(minSizeValue, maxSizeValue);
+            // Generate param for arithmetic progression
+            int start = Utils.randomNumber(1, MAXSTARTVALUE);
+            int step = Utils.randomNumber(2, MAXSTEPVALUE);
+            int size = Utils.randomNumber(MINSIZEVALUE, MAXSIZEVALUE);
             int[] progression = getProgression(start, step, size);
+            // Generate index of hidden element
             int hiddenElement = progression[Utils.randomNumber(0, size - 1)];
-            String[] question = new String[size];
+            StringBuilder question = new StringBuilder();
             for (int index = 0; index < size; index++) {
                 if (progression[index] == hiddenElement) {
-                    question[index] = "..";
+                    question.append("..");
+                    question.append(" ");
                 } else {
-                    question[index] = String.valueOf(progression[index]);
+                    question.append(progression[index]);
+                    question.append(" ");
                 }
             }
-            questions[i] = String.join(" ", question);
+            questions[i] = question.toString().trim();
             answers[i] = String.valueOf(hiddenElement);
         }
         Engine.run(new String[][]{questions, answers}, DESCRIPTION);
     }
+    // This method generate arithmetic progression size - size, start with - progressionStart, step - progressionStep
     private static int[] getProgression(int progressionStart, int progressionStep, int size) {
         int[] progression = new int[size];
         for (int i = 0; i < size; i++) {
