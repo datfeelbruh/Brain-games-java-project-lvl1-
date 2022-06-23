@@ -1,12 +1,12 @@
-# Проект Brain games
-  Проект представляет собой математические игры реализованные через взаимодействие с терминалом.
-# Как запустить
-  Склонировать репозиторий локально и сбилдить его через gradle
+# Brain games
+  Math games in the terminal
+# How to start
+  Clone this repo and build with dragle
   ~~~
   gradle installDist
   make run-dist
   ~~~
-# Демонстрация работы игр
+# Games demonstration
 ## Even
   https://asciinema.org/a/f4SfM2CJAJCwNxzFPI5HRRlj8
 ## Calc
