@@ -9,9 +9,10 @@ public class Gcd {
     public static void start() {
         String[] questions = new String[Engine.MAXROUNDS];
         String[] answers = new String[Engine.MAXROUNDS];
+        final int maxValue = 100;
         for (int i = 0; i < Engine.MAXROUNDS; i++) {
-            int firstNumber = Utils.randomNumber(1, 100);
-            int secondNumber = Utils.randomNumber(1, 100);
+            int firstNumber = Utils.randomNumber(1, maxValue);
+            int secondNumber = Utils.randomNumber(1, maxValue);
             questions[i] = firstNumber + " " + secondNumber;
             answers[i] = String.valueOf(getGcd(firstNumber, secondNumber));
         }

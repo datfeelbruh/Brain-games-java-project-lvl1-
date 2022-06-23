@@ -2,18 +2,20 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import java.util.Arrays;
-
 public class Progression {
     public static final String DESCRIPTION = "What number is missing in the progression?";
 
     public static void start() {
         String[] questions = new String[Engine.MAXROUNDS];
         String[] answers = new String[Engine.MAXROUNDS];
+        final int maxStartValue = 15;
+        final int maxStepValue = 8;
+        final int minSizeValue = 5;
+        final int maxSizeValue = 10;
         for (int i = 0; i < Engine.MAXROUNDS; i++) {
-            int start = Utils.randomNumber(1, 15);
-            int step = Utils.randomNumber(2, 8);
-            int size = Utils.randomNumber(5, 10);
+            int start = Utils.randomNumber(1, maxStartValue);
+            int step = Utils.randomNumber(2, maxStepValue);
+            int size = Utils.randomNumber(minSizeValue, maxSizeValue);
             int[] progression = getProgression(start, step, size);
             int hiddenElement = progression[Utils.randomNumber(0, size - 1)];
             String[] question = new String[size];

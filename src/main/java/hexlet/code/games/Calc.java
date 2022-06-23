@@ -10,9 +10,10 @@ public class Calc {
     public static void start() {
         String[] questions = new String[Engine.MAXROUNDS];
         String[] answers = new String[Engine.MAXROUNDS];
+        final int maxValue = 20;
         for (int i = 0; i < Engine.MAXROUNDS; i++) {
-            int firstNumber = Utils.randomNumber(0, 20);
-            int secondNumber = Utils.randomNumber(0, 20);
+            int firstNumber = Utils.randomNumber(0, maxValue);
+            int secondNumber = Utils.randomNumber(0, maxValue);
             String operator = OPERATORS[Utils.randomNumber(0, OPERATORS.length)];
             questions[i] = firstNumber + " " + operator + " " + secondNumber;
             answers[i] = String.valueOf(calcExpression(firstNumber, secondNumber, operator));

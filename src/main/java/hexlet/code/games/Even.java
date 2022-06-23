@@ -10,8 +10,9 @@ public class Even {
     public static void start() {
         String[] questions = new String[Engine.MAXROUNDS];
         String[] answers = new String[Engine.MAXROUNDS];
+        final int maxValue = 100;
         for (int i = 0; i < Engine.MAXROUNDS; i++) {
-            int randomNumber = Utils.randomNumber(0, 100);
+            int randomNumber = Utils.randomNumber(0, maxValue);
             questions[i] = String.valueOf(randomNumber);
             answers[i] = isEven(randomNumber) ? "yes" : "no";
         }
