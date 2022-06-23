@@ -24,7 +24,7 @@ public class Progression {
                     question[index] = String.valueOf(progression[index]);
                 }
             }
-            questions[i] = Arrays.toString(question);
+            questions[i] = String.join(" ", question);
             answers[i] = String.valueOf(hiddenElement);
         }
         Engine.run(new String[][]{questions, answers}, DESCRIPTION);
