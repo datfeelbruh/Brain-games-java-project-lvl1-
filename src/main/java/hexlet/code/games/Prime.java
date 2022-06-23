@@ -10,7 +10,7 @@ public class Prime {
         String[] questions = new String[Engine.MAXROUNDS];
         String[] answers = new String[Engine.MAXROUNDS];
         for (int i = 0; i < Engine.MAXROUNDS; i++) {
-            int number = Utils.randomNumber();
+            int number = Utils.randomNumber(0, 100);
             questions[i] = String.valueOf(number);
             answers[i] = isPrime(number) ? "yes" : "no";
         }
@@ -18,6 +18,9 @@ public class Prime {
     }
 
     private static boolean isPrime(int num) {
+        if (num <= 0 || num == 1) {
+            return false;
+        }
         for (int i = 2; i <= Math.sqrt(num); i++) {
             if (num % i == 0) {
                 return false;

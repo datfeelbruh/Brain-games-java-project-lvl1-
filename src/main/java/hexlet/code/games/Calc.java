@@ -6,15 +6,14 @@ import hexlet.code.Utils;
 public class Calc {
     public static final String DESCRIPTION = "What is the result of the expression?";
     private static final String[] OPERATORS = {"+", "-", "*"};
-    private static final int RANGE = OPERATORS.length - 1;
 
     public static void start() {
         String[] questions = new String[Engine.MAXROUNDS];
         String[] answers = new String[Engine.MAXROUNDS];
         for (int i = 0; i < Engine.MAXROUNDS; i++) {
-            int firstNumber = Utils.randomNumber();
-            int secondNumber = Utils.randomNumber();
-            String operator = OPERATORS[(int) (Math.round(Math.random() * RANGE))];
+            int firstNumber = Utils.randomNumber(0, 20);
+            int secondNumber = Utils.randomNumber(0, 20);
+            String operator = OPERATORS[Utils.randomNumber(0, OPERATORS.length)];
             questions[i] = firstNumber + " " + operator + " " + secondNumber;
             answers[i] = String.valueOf(calcExpression(firstNumber, secondNumber, operator));
         }

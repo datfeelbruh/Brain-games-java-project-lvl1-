@@ -11,7 +11,7 @@ public class Even {
         String[] questions = new String[Engine.MAXROUNDS];
         String[] answers = new String[Engine.MAXROUNDS];
         for (int i = 0; i < Engine.MAXROUNDS; i++) {
-            int randomNumber = Utils.randomNumber();
+            int randomNumber = Utils.randomNumber(0, 100);
             questions[i] = String.valueOf(randomNumber);
             answers[i] = isEven(randomNumber) ? "yes" : "no";
         }

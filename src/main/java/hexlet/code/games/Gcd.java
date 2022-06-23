@@ -6,13 +6,12 @@ import hexlet.code.Utils;
 public class Gcd {
     public static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
 
-
     public static void start() {
         String[] questions = new String[Engine.MAXROUNDS];
         String[] answers = new String[Engine.MAXROUNDS];
         for (int i = 0; i < Engine.MAXROUNDS; i++) {
-            int firstNumber = Utils.randomNumber();
-            int secondNumber = Utils.randomNumber();
+            int firstNumber = Utils.randomNumber(1, 100);
+            int secondNumber = Utils.randomNumber(1, 100);
             questions[i] = firstNumber + " " + secondNumber;
             answers[i] = String.valueOf(getGcd(firstNumber, secondNumber));
         }

@@ -19,16 +19,14 @@ public class Engine {
             String playerAnswer = scanner.nextLine();
             if (playerAnswer.equals(answer)) {
                 System.out.println("Correct!");
-                if (i == 2) {
-                    System.out.println("Congratulations, " + playerName + "!");
-                }
             } else {
                 System.out.println("'" + playerAnswer + "'" + " is wrong answer ;(. Correct answer was "
                         + "'" + answer + "'" + ".\n"
                         + "Let's try again, " + playerName + "!");
-                i = MAXROUNDS;
+                return;
             }
         }
         scanner.close();
+        System.out.println("Congratulations, " + playerName + "!");
     }
 }
