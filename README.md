@@ -1,7 +1,7 @@
 # Brain games
   Math games in the terminal
 # How to start
-  Clone this repo and build with dragle
+  Clone this repo and build with gradle
   ~~~
   gradle installDist
   make run-dist
