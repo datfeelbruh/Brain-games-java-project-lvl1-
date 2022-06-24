@@ -2,18 +2,22 @@ package hexlet.code;
 
 import java.util.Scanner;
 
+
+/**
+ * This class is for manipulating two dimensions array with game data.
+ * @author khoroshko.d
+ */
 public class Engine {
+
+    /**
+     * This field is value of max count iteration of compare for game data.
+     */
     public static final int MAXROUNDS = 3;
 
     /**
-     * The method that processes the data of the game that invoke this method.
-     * In cycle print <code>gameData[0][i]</code> question
-     * and get player answer. Compare <code>gameData[1][i]</code> answer and player answer.
-     * @author datfeelbruh <datfeelman@gmail.com>
-     * @see hexlet.code.games
-     * @param gameData <code>gameData[0]</code> question;
-     *                <code>gameData[1]</code> answers;
-     * @param description The game rules <code>description</code> to be printed.
+     * This method is for print messages in command line and for compare game data.
+     * @param gameData Two dimension array with game data
+     * @param description The description of game rules to be printed in command line
      */
     public static void run(String[][] gameData, String description) {
         System.out.print("Welcome to the Brain Games!\nMay I have your name? ");

@@ -5,10 +5,17 @@ import hexlet.code.games.Calc;
 import hexlet.code.games.Gcd;
 import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
-
 import java.util.Scanner;
 
+/**
+ * App class is start point application "Brain games".
+ * @author khoroshko.d
+ */
 public class App {
+    /**
+     * This is the main() method for application.
+     * @param args command line args
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the game number and press Enter\n"

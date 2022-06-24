@@ -2,11 +2,18 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Utils;
-
+/**
+ * This class is for generate game data for game Calc.
+ * @author khoroshko.d
+ */
 public class Calc {
+    /** This field is contains game rules. */
     public static final String DESCRIPTION = "What is the result of the expression?";
+    /** This field is contains array of arithmetic operators. */
     private static final String[] OPERATORS = {"+", "-", "*"};
+    /** This field is contains max value for generate number. */
     private static final int MAXVALUE = 20;
+    /** This method is generated two-dimensional array of game data to be processed by the Engine class. */
     public static void start() {
         String[] questions = new String[Engine.MAXROUNDS];
         String[] answers = new String[Engine.MAXROUNDS];
@@ -19,7 +26,13 @@ public class Calc {
         }
         Engine.run(new String[][]{questions, answers}, DESCRIPTION);
     }
-
+    /**
+     * Returns an integer result of arithmetic expression.
+     * @param n1 - Left operand of expression
+     * @param n2 - Right operand of expression
+     * @param op - Operator of expression
+     * @return int result of arithmetic expression <code>n1</code> <code>op</code> <code>n2</code>
+     */
     // Expression result
     private static int calcExpression(int n1, int n2, String op) throws RuntimeException {
         return switch (op) {

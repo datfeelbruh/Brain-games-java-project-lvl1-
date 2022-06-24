@@ -1,14 +1,22 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
-
+/**
+ * This class is for generate game data for game Progression.
+ * @author khoroshko.d
+ */
 public class Progression {
+    /** This field is contains game rules. */
     public static final String DESCRIPTION = "What number is missing in the progression?";
+    /** This field is contains max value first element of progression. */
     private static final int MAXSTARTVALUE = 15;
+    /** This field is contains max value step of progression. */
     private static final int MAXSTEPVALUE = 8;
+    /** This field is contains min value step of progression. */
     private static final int MINSIZEVALUE = 5;
+    /** This field is contains max value length of progression. */
     private static final int MAXSIZEVALUE = 10;
-
+    /** This method is generated two-dimensional array of game data to be processed by the Engine class. */
     public static void start() {
         String[] questions = new String[Engine.MAXROUNDS];
         String[] answers = new String[Engine.MAXROUNDS];
@@ -35,7 +43,16 @@ public class Progression {
         }
         Engine.run(new String[][]{questions, answers}, DESCRIPTION);
     }
-    // This method generate arithmetic progression size - size, start with - progressionStart, step - progressionStep
+    /**
+     * This method generate arithmetic progression of
+     * length - <code>size</code>,
+     * starting at - <code>progressionStart</code>progressionStart and
+     * with step - <code>progressionStep</code>.
+     * @param progressionStart - int number start of progression
+     * @param progressionStep - int number step of progression
+     * @param size - int number length of progression
+     * @return int[] - array int of progression
+     */
     private static int[] getProgression(int progressionStart, int progressionStep, int size) {
         int[] progression = new int[size];
         for (int i = 0; i < size; i++) {
