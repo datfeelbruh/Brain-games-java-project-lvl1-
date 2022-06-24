@@ -13,15 +13,14 @@ public class Gcd {
     private static final int MAXVALUE = 100;
     /** This method is generated two-dimensional array of game data to be processed by the Engine class. */
     public static void start() {
-        String[] questions = new String[Engine.MAXROUNDS];
-        String[] answers = new String[Engine.MAXROUNDS];
+        String[][] data = new String[Engine.MAXROUNDS][2];
         for (int i = 0; i < Engine.MAXROUNDS; i++) {
             int firstNumber = Utils.randomNumber(1, MAXVALUE);
             int secondNumber = Utils.randomNumber(1, MAXVALUE);
-            questions[i] = firstNumber + " " + secondNumber;
-            answers[i] = String.valueOf(getGcd(firstNumber, secondNumber));
+            data[i][0] = firstNumber + " " + secondNumber;
+            data[i][1] = String.valueOf(getGcd(firstNumber, secondNumber));
         }
-        Engine.run(new String[][]{questions, answers}, DESCRIPTION);
+        Engine.run(data, DESCRIPTION);
     }
 
     /**

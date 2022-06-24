@@ -26,8 +26,8 @@ public class Engine {
         System.out.println("Hello, " + playerName + "!");
         System.out.println(description);
         for (int i = 0; i < MAXROUNDS; i++) {
-            String question = gameData[0][i];
-            String answer = gameData[1][i];
+            String question = gameData[i][0];
+            String answer = gameData[i][1];
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");
             String playerAnswer = scanner.nextLine();

@@ -13,14 +13,13 @@ public class Prime {
     private static final int MAXVALUE = 100;
     /** This method is generated two-dimensional array of game data to be processed by the Engine class. */
     public static void start() {
-        String[] questions = new String[Engine.MAXROUNDS];
-        String[] answers = new String[Engine.MAXROUNDS];
+        String[][] data = new String[Engine.MAXROUNDS][2];
         for (int i = 0; i < Engine.MAXROUNDS; i++) {
             int randomNumber = Utils.randomNumber(0, MAXVALUE);
-            questions[i] = String.valueOf(randomNumber);
-            answers[i] = isPrime(randomNumber) ? "yes" : "no";
+            data[i][0] = String.valueOf(randomNumber);
+            data[i][1] = isPrime(randomNumber) ? "yes" : "no";
         }
-        Engine.run(new String[][]{questions, answers}, DESCRIPTION);
+        Engine.run(data, DESCRIPTION);
     }
     /**
      * Returns a boolean result a primality test for number.

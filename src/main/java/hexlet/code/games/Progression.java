@@ -18,8 +18,7 @@ public class Progression {
     private static final int MAXSIZEVALUE = 10;
     /** This method is generated two-dimensional array of game data to be processed by the Engine class. */
     public static void start() {
-        String[] questions = new String[Engine.MAXROUNDS];
-        String[] answers = new String[Engine.MAXROUNDS];
+        String[][] data = new String[Engine.MAXROUNDS][2];
         for (int i = 0; i < Engine.MAXROUNDS; i++) {
             // Generate param for arithmetic progression
             int start = Utils.randomNumber(1, MAXSTARTVALUE);
@@ -38,10 +37,10 @@ public class Progression {
                     question.append(" ");
                 }
             }
-            questions[i] = question.toString().trim();
-            answers[i] = String.valueOf(hiddenElement);
+            data[i][0] = question.toString().trim();
+            data[i][1] = String.valueOf(hiddenElement);
         }
-        Engine.run(new String[][]{questions, answers}, DESCRIPTION);
+        Engine.run(data, DESCRIPTION);
     }
     /**
      * This method generate arithmetic progression of
