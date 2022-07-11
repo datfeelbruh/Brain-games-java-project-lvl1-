@@ -7,11 +7,11 @@ import hexlet.code.Utils;
  * @author khoroshko.d
  */
 public class Prime {
-    /** This field is contains game rules. */
+    /** This field is containing game rules. */
     public static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    /** This field is contains max value for generate number. */
+    /** This field is containing max value for generated number. */
     private static final int MAXVALUE = 100;
-    /** This method is generated two-dimensional array of game data to be processed by the Engine class. */
+    /** This method is generated a two-dimensional array of game data to be processed by the Engine class. */
     public static void start() {
         String[][] data = new String[Engine.MAXROUNDS][2];
         for (int i = 0; i < Engine.MAXROUNDS; i++) {
@@ -23,7 +23,7 @@ public class Prime {
     }
     /**
      * Returns a boolean result a primality test for number.
-     * @param number -  The number to be checked for primality.
+     * @param number - The number to be checked for primality.
      * @return true if this int prime, false otherwise
      */
     // Prime number test

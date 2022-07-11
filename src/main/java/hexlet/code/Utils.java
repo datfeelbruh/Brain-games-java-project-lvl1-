@@ -6,7 +6,7 @@ package hexlet.code;
  */
 public class Utils {
     /**
-     * This method return random number in range from <code>minValue</code> to <code>maxValue</code>.
+     * This method returns random number in range from <code>minValue</code> to <code>maxValue</code>.
      * @param minValue minimal number which method can generate
      * @param maxValue maximum number which method can generate
      * @return int

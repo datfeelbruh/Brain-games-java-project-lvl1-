@@ -6,17 +6,17 @@ import hexlet.code.Utils;
  * @author khoroshko.d
  */
 public class Progression {
-    /** This field is contains game rules. */
+    /** This field is containing game rules. */
     public static final String DESCRIPTION = "What number is missing in the progression?";
-    /** This field is contains max value first element of progression. */
+    /** This field is containing a max value first element of progression. */
     private static final int MAXSTARTVALUE = 15;
-    /** This field is contains max value step of progression. */
+    /** This field is containing a max value step of progression. */
     private static final int MAXSTEPVALUE = 8;
-    /** This field is contains min value step of progression. */
+    /** This field is containing a min value step of progression. */
     private static final int MINSIZEVALUE = 5;
-    /** This field is contains max value length of progression. */
+    /** This field is containing a max value length of progression. */
     private static final int MAXSIZEVALUE = 10;
-    /** This method is generated two-dimensional array of game data to be processed by the Engine class. */
+    /** This method is generated a two-dimensional array of game data to be processed by the Engine class. */
     public static void start() {
         String[][] data = new String[Engine.MAXROUNDS][2];
         for (int i = 0; i < Engine.MAXROUNDS; i++) {
@@ -43,7 +43,7 @@ public class Progression {
         Engine.run(data, DESCRIPTION);
     }
     /**
-     * This method generate arithmetic progression of
+     * This method generates arithmetic progression of
      * length - <code>size</code>,
      * starting at - <code>progressionStart</code>progressionStart and
      * with step - <code>progressionStep</code>.

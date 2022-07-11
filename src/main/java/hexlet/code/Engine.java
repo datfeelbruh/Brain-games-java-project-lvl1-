@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 
 /**
- * This class is for manipulating two dimensions array with game data.
+ * This class is for manipulating a two dimensions array with game data.
  * @author khoroshko.d
  */
 public class Engine {
 
     /**
-     * This field is value of max count iteration of compare for game data.
+     * This field is value of max count iteration compare for game data.
      */
     public static final int MAXROUNDS = 3;
 
