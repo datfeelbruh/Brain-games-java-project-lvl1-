@@ -12,6 +12,13 @@ import java.util.Scanner;
  * @author khoroshko.d
  */
 public class App {
+    private static final String EXIT_CODE = "0";
+    private static final String GREET_CODE = "1";
+    private static final String EVEN_CODE = "2";
+    private static final String CALC_CODE = "3";
+    private static final String GCD_CODE = "4";
+    private static final String PROGRESSION_CODE = "5";
+    private static final String PRIME_CODE = "6";
     /**
      * This is the main() method for application.
      * @param args command line args
@@ -29,24 +36,24 @@ public class App {
         System.out.print("Your choice: ");
         String playerChoice = scanner.nextLine();
         switch (playerChoice) {
-            case "0":
+            case EXIT_CODE:
                 break;
-            case "1":
+            case GREET_CODE:
                 Cli.greeting();
                 break;
-            case "2":
+            case EVEN_CODE:
                 Even.start();
                 break;
-            case "3":
+            case CALC_CODE:
                 Calc.start();
                 break;
-            case "4":
+            case GCD_CODE:
                 Gcd.start();
                 break;
-            case "5":
+            case PROGRESSION_CODE:
                 Progression.start();
                 break;
-            case "6":
+            case PRIME_CODE:
                 Prime.start();
                 break;
             default:
